@@ -17,7 +17,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     ImageView avatarNeighbour;
     private Neighbour mNeighbour;
     TextView textViewName;
-    TextView neighbourName;
+    TextView textViewNeighbourName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,12 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textViewNeighbourName);
 
         Intent intent = getIntent();
+        String nn = intent.getStringExtra("name");
+        textViewName.setText(nn);
 
-        //intent.getSerializableExtra("NEIGHBOUR");
 
-        //textViewName.setText(mNeighbour.getName().toString());
 
-        Toast.makeText(this, "Name  - " + mNeighbour.getName(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Name  - " + mNeighbour.getName(), Toast.LENGTH_SHORT).show();
 
     }
 }
