@@ -79,8 +79,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
                 String name = mNeighbours.get(position).getName();
-                Log.d(TAG, "onClick: "+ mNeighbours.get(position).getName());
                 String adress = mNeighbours.get(position).getAddress();
+                Log.d(TAG, "onClick: "+ name + " - " + adress);
+                intent.putExtra("name", name);
                 //Toast.makeText(context, (CharSequence) mNeighbours.get(position), Toast.LENGTH_SHORT).show();
                 //intent.putExtra("neighbour_name", mNeighbours.get(position).getName());
                 v.getContext().startActivity(intent);
