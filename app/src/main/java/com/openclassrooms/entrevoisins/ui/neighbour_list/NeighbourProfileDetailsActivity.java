@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -27,10 +26,13 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         textViewName = findViewById(R.id.textViewNeighbourName);
+        textViewNeighbourName = findViewById(R.id.cardViewProfileName);
 
         Intent intent = getIntent();
         String nn = intent.getStringExtra("name");
         textViewName.setText(nn);
+        String nnn = intent.getStringExtra("nameCardView");
+        textViewNeighbourName.setText(nnn);
 
 
 

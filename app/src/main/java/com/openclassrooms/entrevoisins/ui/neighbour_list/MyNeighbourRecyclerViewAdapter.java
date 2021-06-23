@@ -38,6 +38,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     ItemClicked activity;
     private ListView listView;
     TextView name;
+    TextView nameCardView;
     //private boolean favoritesButton;
 
     //ListProfileSelected selectedProfile;
@@ -71,17 +72,17 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
-
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
-                String name = mNeighbours.get(position).getName();
+                String nameImageView = mNeighbours.get(position).getName();
+                String nameCardView = mNeighbours.get(position).getName();
                 String adress = mNeighbours.get(position).getAddress();
-                Log.d(TAG, "onClick: "+ name + " - " + adress);
-                intent.putExtra("name", name);
+                Log.d(TAG, "onClick: "+ nameImageView + " - " + adress);
+                intent.putExtra("name", nameImageView);
+                intent.putExtra("nameCardView", nameCardView);
                 //Toast.makeText(context, (CharSequence) mNeighbours.get(position), Toast.LENGTH_SHORT).show();
                 //intent.putExtra("neighbour_name", mNeighbours.get(position).getName());
                 v.getContext().startActivity(intent);
