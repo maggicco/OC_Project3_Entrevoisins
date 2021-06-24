@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -39,8 +40,8 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        //String profileImage = intent.getStringExtra("profileImage");
-        //profileAvatar.setImageResource(profileImage);
+        String profileImage = intent.getStringExtra("avatar");
+        Glide.with(this).asBitmap().load(profileImage).into(profileAvatar);
 
         String profileNameOnImage = intent.getStringExtra("profileNameOnImage");
         imageViewName.setText(profileNameOnImage);

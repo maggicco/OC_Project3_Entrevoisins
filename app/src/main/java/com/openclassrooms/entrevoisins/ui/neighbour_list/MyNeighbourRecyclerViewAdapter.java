@@ -77,22 +77,20 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
-                //intent.putExtra("avatar", mNeighbour)
+                String avatarUrl = mNeighbours.get(position).getAvatarUrl();
                 String profileNameOnImage = mNeighbours.get(position).getName();
                 String nameCardView = mNeighbours.get(position).getName();
                 String addressCardView = mNeighbours.get(position).getAddress();
                 String numberCardView = mNeighbours.get(position).getPhoneNumber();
                 //String internetCardView = mNeighbours.get(position).get;
                 String aboutMeCardView = mNeighbours.get(position).getAboutMe();
-                //Log.d(TAG, "onClick: "+ nameImageView + " - " + addressCardView);
+                Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
+                intent.putExtra("avatar", avatarUrl);
                 intent.putExtra("profileNameOnImage", profileNameOnImage);
                 intent.putExtra("profileName", nameCardView);
                 intent.putExtra("profileAddress", addressCardView);
                 intent.putExtra("profileNumber", numberCardView);
-                //intent.putExtra("profileInternet", internetCardView);
                 intent.putExtra("profileAboutMe", aboutMeCardView);
-                //Toast.makeText(context, (CharSequence) mNeighbours.get(position), Toast.LENGTH_SHORT).show();
-                //intent.putExtra("neighbour_name", mNeighbours.get(position).getName());
                 v.getContext().startActivity(intent);
             }
         });
@@ -113,13 +111,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
 
-        TextView neighbourName;
-
 
         public ViewHolder(View view) {
             super(view);
-            neighbourName = view.findViewById(R.id.textViewNeighbourName);
-
             ButterKnife.bind(this, view);
         }
     }
