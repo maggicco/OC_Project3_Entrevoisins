@@ -13,10 +13,14 @@ import java.util.Objects;
 
 public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
-    ImageView avatarNeighbour;
+    ImageView profileAvatar;
     private Neighbour mNeighbour;
-    TextView textViewName;
-    TextView textViewNeighbourName;
+    TextView imageViewName;
+    TextView cardViewProfileName;
+    TextView cardViewProfileAdress;
+    TextView cardViewProfileNumber;
+    TextView cardViewProfileMail;
+    TextView cardViewProfileAboutMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +29,37 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         //Back Home arrow
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        textViewName = findViewById(R.id.textViewNeighbourName);
-        textViewNeighbourName = findViewById(R.id.cardViewProfileName);
+        profileAvatar = findViewById(R.id.imageViewProfileAvatar);
+        imageViewName = findViewById(R.id.textViewNeighbourName);
+        cardViewProfileName = findViewById(R.id.cardViewProfileName);
+        cardViewProfileAdress = findViewById(R.id.cardViewProfileAdress);
+        cardViewProfileNumber = findViewById(R.id.cardViewProfileNumber);
+        cardViewProfileMail = findViewById(R.id.cardViewProfileMail);
+        cardViewProfileAboutMe = findViewById(R.id.cardViewProfileAboutMe);
 
         Intent intent = getIntent();
-        String nn = intent.getStringExtra("name");
-        textViewName.setText(nn);
-        String nnn = intent.getStringExtra("nameCardView");
-        textViewNeighbourName.setText(nnn);
+
+        //String profileImage = intent.getStringExtra("profileImage");
+        //profileAvatar.setImageResource(profileImage);
+
+        String profileNameOnImage = intent.getStringExtra("profileNameOnImage");
+        imageViewName.setText(profileNameOnImage);
+
+        String profileName = intent.getStringExtra("profileName");
+        cardViewProfileName.setText(profileName);
+
+        String profileAddress = intent.getStringExtra("profileAddress");
+        cardViewProfileAdress.setText(profileAddress);
+
+        String profileNumber = intent.getStringExtra("profileNumber");
+        cardViewProfileNumber.setText(profileNumber);
+
+//        String profileMail = intent.getStringExtra("profileInternet");
+//        cardViewProfileMail.setText(profileMail);
+
+        String profileAboutMe = intent.getStringExtra("profileAboutMe");
+        cardViewProfileAboutMe.setText(profileAboutMe);
+
 
 
 

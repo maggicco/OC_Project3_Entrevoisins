@@ -77,12 +77,20 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
-                String nameImageView = mNeighbours.get(position).getName();
+                //intent.putExtra("avatar", mNeighbour)
+                String profileNameOnImage = mNeighbours.get(position).getName();
                 String nameCardView = mNeighbours.get(position).getName();
-                String adress = mNeighbours.get(position).getAddress();
-                Log.d(TAG, "onClick: "+ nameImageView + " - " + adress);
-                intent.putExtra("name", nameImageView);
-                intent.putExtra("nameCardView", nameCardView);
+                String addressCardView = mNeighbours.get(position).getAddress();
+                String numberCardView = mNeighbours.get(position).getPhoneNumber();
+                //String internetCardView = mNeighbours.get(position).get;
+                String aboutMeCardView = mNeighbours.get(position).getAboutMe();
+                //Log.d(TAG, "onClick: "+ nameImageView + " - " + addressCardView);
+                intent.putExtra("profileNameOnImage", profileNameOnImage);
+                intent.putExtra("profileName", nameCardView);
+                intent.putExtra("profileAddress", addressCardView);
+                intent.putExtra("profileNumber", numberCardView);
+                //intent.putExtra("profileInternet", internetCardView);
+                intent.putExtra("profileAboutMe", aboutMeCardView);
                 //Toast.makeText(context, (CharSequence) mNeighbours.get(position), Toast.LENGTH_SHORT).show();
                 //intent.putExtra("neighbour_name", mNeighbours.get(position).getName());
                 v.getContext().startActivity(intent);
