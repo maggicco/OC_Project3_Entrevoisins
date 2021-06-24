@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EBEFF0"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".ui.neighbour_list.NeighbourProfileDetailsActivity">
@@ -23,12 +24,12 @@
         android:id="@+id/textViewNeighbourName"
         android:layout_width="202dp"
         android:layout_height="42dp"
-        android:padding="5dp"
-        android:textStyle="bold"
         android:layout_alignBottom="@+id/imageViewProfileAvatar"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="25dp"
+        android:padding="5dp"
         android:textSize="24dp"
+        android:textStyle="bold"
 
         />
 
@@ -52,18 +53,20 @@
                 android:id="@+id/cardViewProfileName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:pointerIcon="arrow"
                 android:layout_margin="10dp"
                 android:padding="5dp"
-                android:text="TextView" />
+                android:pointerIcon="arrow"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/cardViewProfileAdress"
+                android:id="@+id/cardViewProfileAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_location_24"
                 android:padding="5dp"
                 android:text="TextView" />
 
@@ -73,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:padding="5dp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_phone_24"
                 android:text="TextView" />
 
             <TextView
@@ -81,7 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:padding="5dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_circle_world_24"/>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

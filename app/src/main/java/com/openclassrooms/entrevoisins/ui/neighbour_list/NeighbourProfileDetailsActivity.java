@@ -32,7 +32,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         profileAvatar = findViewById(R.id.imageViewProfileAvatar);
         imageViewName = findViewById(R.id.textViewNeighbourName);
         cardViewProfileName = findViewById(R.id.cardViewProfileName);
-        cardViewProfileAdress = findViewById(R.id.cardViewProfileAdress);
+        cardViewProfileAdress = findViewById(R.id.cardViewProfileAddress);
         cardViewProfileNumber = findViewById(R.id.cardViewProfileNumber);
         cardViewProfileMail = findViewById(R.id.cardViewProfileMail);
         cardViewProfileAboutMe = findViewById(R.id.cardViewProfileAboutMe);
