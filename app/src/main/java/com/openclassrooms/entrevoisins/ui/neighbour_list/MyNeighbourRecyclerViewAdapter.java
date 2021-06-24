@@ -34,15 +34,7 @@ import static org.greenrobot.eventbus.EventBus.TAG;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    private Context context;
     ItemClicked activity;
-    private ListView listView;
-    TextView name;
-    TextView nameCardView;
-    //private boolean favoritesButton;
-
-    //ListProfileSelected selectedProfile;
-
 
     public MyNeighbourRecyclerViewAdapter( List<Neighbour> items) {
         this.mNeighbours = items;
@@ -84,7 +76,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 String numberCardView = mNeighbours.get(position).getPhoneNumber();
                 String internetCardView = mNeighbours.get(position).getName();
                 String aboutMeCardView = mNeighbours.get(position).getAboutMe();
-                Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
+                //Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
                 intent.putExtra("avatar", avatarUrl);
                 intent.putExtra("profileNameOnImage", profileNameOnImage);
                 intent.putExtra("profileName", nameCardView);

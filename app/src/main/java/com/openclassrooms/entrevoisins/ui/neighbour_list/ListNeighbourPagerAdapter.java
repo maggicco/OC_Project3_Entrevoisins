@@ -23,6 +23,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+        //switching Tabs
         switch (position) {
 
             case 0:

@@ -1,8 +1,11 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,13 +18,15 @@ import java.util.Objects;
 public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
     ImageView profileAvatar;
-    private Neighbour mNeighbour;
     TextView imageViewName;
     TextView cardViewProfileName;
     TextView cardViewProfileAdress;
     TextView cardViewProfileNumber;
     TextView cardViewProfileMail;
     TextView cardViewProfileAboutMe;
+    FloatingActionButton fab;
+    private boolean fabClicked;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +66,28 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         String profileAboutMe = intent.getStringExtra("profileAboutMe");
         cardViewProfileAboutMe.setText(profileAboutMe);
 
+        //Favorites Button
+        fab = findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                        R.drawable.ic_star_full_foreground));
+//                fabClicked = true;
+//                if (fabClicked) {
+//
+//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+//                            R.drawable.ic_star_empty_foreground));
+//                    fabClicked = false;
+//
+//                }else if (!fabClicked) {
+//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+//                            R.drawable.ic_star_full_foreground));
+//                    fabClicked = true;
+//                }
 
-
-
-        //Toast.makeText(this, "Name  - " + mNeighbour.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
