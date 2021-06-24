@@ -82,7 +82,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 String nameCardView = mNeighbours.get(position).getName();
                 String addressCardView = mNeighbours.get(position).getAddress();
                 String numberCardView = mNeighbours.get(position).getPhoneNumber();
-                //String internetCardView = mNeighbours.get(position).get;
+                String internetCardView = mNeighbours.get(position).getName();
                 String aboutMeCardView = mNeighbours.get(position).getAboutMe();
                 Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
                 intent.putExtra("avatar", avatarUrl);
@@ -90,6 +90,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 intent.putExtra("profileName", nameCardView);
                 intent.putExtra("profileAddress", addressCardView);
                 intent.putExtra("profileNumber", numberCardView);
+                intent.putExtra("profileInternet", internetCardView);
                 intent.putExtra("profileAboutMe", aboutMeCardView);
                 v.getContext().startActivity(intent);
             }

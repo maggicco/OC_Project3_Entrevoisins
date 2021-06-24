@@ -55,8 +55,8 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         String profileNumber = intent.getStringExtra("profileNumber");
         cardViewProfileNumber.setText(profileNumber);
 
-//        String profileMail = intent.getStringExtra("profileInternet");
-//        cardViewProfileMail.setText(profileMail);
+        String profileMail = "www.facebook.fr/" + intent.getStringExtra("profileInternet");
+        cardViewProfileMail.setText(profileMail);
 
         String profileAboutMe = intent.getStringExtra("profileAboutMe");
         cardViewProfileAboutMe.setText(profileAboutMe);
