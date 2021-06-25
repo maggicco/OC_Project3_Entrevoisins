@@ -20,12 +20,12 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     ImageView profileAvatar;
     TextView imageViewName;
     TextView cardViewProfileName;
-    TextView cardViewProfileAdress;
+    TextView cardViewProfileAddress;
     TextView cardViewProfileNumber;
     TextView cardViewProfileMail;
     TextView cardViewProfileAboutMe;
     FloatingActionButton fab;
-    private boolean fabClicked;
+    //private boolean fabClicked;
 
 
     @Override
@@ -38,7 +38,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         profileAvatar = findViewById(R.id.imageViewProfileAvatar);
         imageViewName = findViewById(R.id.textViewNeighbourName);
         cardViewProfileName = findViewById(R.id.cardViewProfileName);
-        cardViewProfileAdress = findViewById(R.id.cardViewProfileAddress);
+        cardViewProfileAddress = findViewById(R.id.cardViewProfileAddress);
         cardViewProfileNumber = findViewById(R.id.cardViewProfileNumber);
         cardViewProfileMail = findViewById(R.id.cardViewProfileMail);
         cardViewProfileAboutMe = findViewById(R.id.cardViewProfileAboutMe);
@@ -55,7 +55,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         cardViewProfileName.setText(profileName);
 
         String profileAddress = intent.getStringExtra("profileAddress");
-        cardViewProfileAdress.setText(profileAddress);
+        cardViewProfileAddress.setText(profileAddress);
 
         String profileNumber = intent.getStringExtra("profileNumber");
         cardViewProfileNumber.setText(profileNumber);
