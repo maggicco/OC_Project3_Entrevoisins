@@ -37,7 +37,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
     TextInputLayout aboutMeInput;
     @BindView(R.id.create)
     MaterialButton addButton;
-    String favoriteStatus = "0";
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;

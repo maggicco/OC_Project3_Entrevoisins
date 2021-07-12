@@ -65,11 +65,14 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
+                long idNeighbour = mNeighbours.get(position).getId();
                 String avatarUrl = mNeighbours.get(position).getAvatarUrl();
                 String profileNameOnImage = mNeighbours.get(position).getName();
                 String nameCardView = mNeighbours.get(position).getName();
@@ -78,6 +81,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 String internetCardView = mNeighbours.get(position).getName();
                 String aboutMeCardView = mNeighbours.get(position).getAboutMe();
                 //Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
+                intent.putExtra("id", idNeighbour);
                 intent.putExtra("avatar", avatarUrl);
                 intent.putExtra("profileNameOnImage", profileNameOnImage);
                 intent.putExtra("profileName", nameCardView);

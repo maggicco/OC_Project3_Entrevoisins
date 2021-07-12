@@ -6,13 +6,16 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.model.FavoriteNeighbour;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class NeighbourProfileDetailsActivity extends AppCompatActivity {
@@ -25,8 +28,9 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     TextView cardViewProfileMail;
     TextView cardViewProfileAboutMe;
     FloatingActionButton fab;
-    //private boolean fabClicked;
+    private boolean flag = true;
 
+    List<FavoriteNeighbour> favList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         cardViewProfileAboutMe = findViewById(R.id.cardViewProfileAboutMe);
 
         Intent intent = getIntent();
+
+        long idNieghbour = intent.getLongExtra("id", 0);
+
 
         String profileImage = intent.getStringExtra("avatar");
         Glide.with(this).asBitmap().load(profileImage).into(profileAvatar);
@@ -68,24 +75,37 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
         //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
+
+        //ArrayAdapter<FavoriteNeighbour> adapter = new ArrayAdapter<FavoriteNeighbour>(getApplicationContext(), android.R.layout.simple_spinner_item, favList);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-                        R.drawable.ic_star_full_foreground));
-//                fabClicked = true;
-//                if (fabClicked) {
-//
-//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-//                            R.drawable.ic_star_empty_foreground));
-//                    fabClicked = false;
-//
-//                }else if (!fabClicked) {
-//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-//                            R.drawable.ic_star_full_foreground));
-//                    fabClicked = true;
-//                }
 
+                if (flag) {
+
+                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            R.drawable.ic_star_yellow_empty_24dp));
+
+                    flag = false;
+
+
+                }
+                else if(!flag) {
+
+                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            R.drawable.ic_star_yellow_full_24dp));
+
+                    flag = true;
+
+                    favList = new ArrayList<>();
+                    favList.add(new FavoriteNeighbour(idNieghbour, profileName, profileImage));
+                    //favList.add(new FavoriteNeighbour(v);
+                    favList.add(new FavoriteNeighbour(1, "Julia", profileImage));
+
+                    //notifyDataSetChanged();
+
+                }
             }
         });
 
