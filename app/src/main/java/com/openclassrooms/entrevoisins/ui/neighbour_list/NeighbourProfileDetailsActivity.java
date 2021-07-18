@@ -36,6 +36,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     Neighbour currentNeighbour;
 
     List<Neighbour> favList;
+    private boolean favListStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,67 +56,52 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         currentNeighbour = (Neighbour) intent.getSerializableExtra("TONEIGHBOURPROFILE");
 
-        //long idNieghbour = intent.getLongExtra("id", 0);
-
         //for (int i = 0; i< mApiService.getNeighbours().size(); i++) {
             // Get current neighbour // Comparer les ids
         //}
 
-
-        //String profileImage = intent.getStringExtra("avatar");
+        // getting data from intent
         Glide.with(this).asBitmap().load(currentNeighbour.getAvatarUrl()).into(profileAvatar);
-
-        //String profileNameOnImage = intent.getStringExtra("profileNameOnImage");
         imageViewName.setText(currentNeighbour.getName());
-
-        //String profileName = intent.getStringExtra("profileName");
         cardViewProfileName.setText(currentNeighbour.getName());
-
-//        String profileAddress = intent.getStringExtra("profileAddress");
         cardViewProfileAddress.setText(currentNeighbour.getAddress());
-//
-//        String profileNumber = intent.getStringExtra("profileNumber");
         cardViewProfileNumber.setText(currentNeighbour.getPhoneNumber());
-//
         String profileMail = "www.facebook.fr/" + intent.getStringExtra("profileInternet");
         cardViewProfileMail.setText("www.facebook.fr/" + currentNeighbour.getName());
-//
-//        String profileAboutMe = intent.getStringExtra("profileAboutMe");
         cardViewProfileAboutMe.setText(currentNeighbour.getAboutMe());
-//
+
 //        //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
-//
-//        ArrayAdapter<Neighbour> adapter = new ArrayAdapter<Neighbour>(getApplicationContext(), android.R.layout.simple_spinner_item, favList);
 
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                // test si currentNeihbour est déja dans la list
-//                mApiService.addFavorite(currentNeighbour);
-//
-//                favList = new ArrayList<>();
-//                favList.add(new Neighbour(currentNeighbour));
-//                //favList.add(new FavoriteNeighbour(v);
-//                //favList.add(new FavoriteNeighbour(1, "Steph", profileImage));
-//
-//                //adapter.notifyDataSetChanged();
-//
-//                if (flag) {
-//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-//                            R.drawable.ic_star_yellow_empty_24dp));
-//
-//                    flag = false;
-//                }
-//                else if(!flag) {
-//                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-//                            R.drawable.ic_star_yellow_full_24dp));
-//
-//                    flag = true;
-//                }
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                //mApiService.set(currentNeighbour);
+
+                if (flag) {
+                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            R.drawable.ic_star_yellow_empty_24dp));
+
+                    flag = false;
+                }
+                else if(!flag) {
+                    //                // test si currentNeighbour est déja dans la list
+                    //trying to add fav neighbour
+//                    for (int i = 0; i< favList.size(); i++) {
+//                        if(favList.get(i).isFavoriteNeighbour()) {
+//                            //favList.add(currentNeighbour.getId());
+//                        }
+//                    }
+
+                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            R.drawable.ic_star_yellow_full_24dp));
+
+                    flag = true;
+                }
+            }
+        });
 
     }
 }

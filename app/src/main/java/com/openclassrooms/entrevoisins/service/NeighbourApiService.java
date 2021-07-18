@@ -29,6 +29,7 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getFavoriteNeighbours();
 
+
     //Added new  function
     /**
      * Deletes a favorite neighbour

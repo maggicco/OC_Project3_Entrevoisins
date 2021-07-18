@@ -17,6 +17,7 @@ import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class FavoriteListNeighbourFragment extends Fragment {
     Adapter myAdapter;
     Button buttonDelete;
     NeighbourApiService mApiService = DI.getNeighbourApiService();
-
 
     View view;
     private RecyclerView recyclerView;
@@ -45,6 +45,7 @@ public class FavoriteListNeighbourFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_favorites_list_neighbour, container, false);
         recyclerView = view.findViewById(R.id.fav_recyclerview);
+        //setting recycler view adapter
         FavoritesNeighboursRecyclerViewAdapter favoritesNeighboursRecyclerViewAdapter =
                 new FavoritesNeighboursRecyclerViewAdapter(getContext(), (ArrayList<Neighbour>) favList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -56,27 +57,32 @@ public class FavoriteListNeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //mData = new ArrayList<>();
+        mApiService.getFavoriteNeighbours();
 
-//        myAdapter = (Adapter) new FavoritesNeighboursRecyclerViewAdapter(getContext(), mData);
-//
-//        recyclerView.setAdapter((RecyclerView.Adapter) myAdapter);
-
-//        favList = new ArrayList<FavoriteNeighbour>();
-//        favList.add(new FavoriteNeighbour(1, "Julia", "1"));
-//        favList.add(new FavoriteNeighbour(1, "Stef", "2"));
-//        favList.add(new FavoriteNeighbour(1, "Jay", "1"));
-//        favList.add(new FavoriteNeighbour(1, "Bram", "2"));
-
-
-//        myAdapter = new FavoritesNeighboursRecyclerViewAdapter(mContext, favList);
-//        recyclerView.setAdapter(myAdapter);
     }
 
 
     private void initList() {
-        //favList = mApiService.getFavoriteNeighbours();
+        favList = mApiService.getFavoriteNeighbours();
         //recyclerView.setAdapter(new FavoritesNeighboursRecyclerViewAdapter(favList));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initList();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     /**
@@ -85,8 +91,7 @@ public class FavoriteListNeighbourFragment extends Fragment {
      */
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
-        //mApiService.deleteFavoriteNeighbour(event.);
-        //favList.(event.neighbour);
+        mApiService.deleteFavoriteNeighbour(event.neighbour);
         initList();
     }
 
