@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.model.FavoriteNeighbour;
+import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +32,10 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     TextView cardViewProfileAboutMe;
     FloatingActionButton fab;
     private boolean flag = true;
+    NeighbourApiService mApiService = DI.getNeighbourApiService();
+    Neighbour currentNeighbour;
 
-    List<FavoriteNeighbour> favList;
+    List<Neighbour> favList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,10 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         long idNieghbour = intent.getLongExtra("id", 0);
+
+        for (int i = 0; i< mApiService.getNeighbours().size(); i++) {
+            // Get current neighbour // Comparer les ids
+        }
 
 
         String profileImage = intent.getStringExtra("avatar");
@@ -76,35 +85,33 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
 
-        //ArrayAdapter<FavoriteNeighbour> adapter = new ArrayAdapter<FavoriteNeighbour>(getApplicationContext(), android.R.layout.simple_spinner_item, favList);
+        ArrayAdapter<Neighbour> adapter = new ArrayAdapter<Neighbour>(getApplicationContext(), android.R.layout.simple_spinner_item, favList);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (flag) {
+                // test si currentNeihbour est déja dans la list
+                mApiService.addFavorite(currentNeighbour);
 
+                favList = new ArrayList<>();
+                favList.add(new Neighbour(currentNeighbour));
+                //favList.add(new FavoriteNeighbour(v);
+                //favList.add(new FavoriteNeighbour(1, "Steph", profileImage));
+
+                adapter.notifyDataSetChanged();
+
+                if (flag) {
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_empty_24dp));
 
                     flag = false;
-
-
                 }
                 else if(!flag) {
-
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_full_24dp));
 
                     flag = true;
-
-                    favList = new ArrayList<>();
-                    favList.add(new FavoriteNeighbour(idNieghbour, profileName, profileImage));
-                    //favList.add(new FavoriteNeighbour(v);
-                    favList.add(new FavoriteNeighbour(1, "Julia", profileImage));
-
-                    //notifyDataSetChanged();
-
                 }
             }
         });

@@ -25,12 +25,18 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
+    public Neighbour(Neighbour currentNeighbour) {
+    }
+
     /**
      * Constructor
      * @param id
      * @param name
      * @param avatarUrl
      */
+
+
+
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String aboutMe) {
         this.id = id;

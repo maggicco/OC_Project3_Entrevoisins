@@ -14,9 +14,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
-import com.openclassrooms.entrevoisins.model.FavoriteNeighbour;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.ItemClicked;
 
@@ -28,12 +25,12 @@ import java.util.List;
 public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter<FavoritesNeighboursRecyclerViewAdapter.ViewHolder> {
 
     Context mContext;
-    List<FavoriteNeighbour> mData;
+    ArrayList<Neighbour> mData;
 
-    public FavoritesNeighboursRecyclerViewAdapter(List<FavoriteNeighbour> favList) {
+    public FavoritesNeighboursRecyclerViewAdapter(ArrayList<Neighbour> mData) {
     }
 
-    public FavoritesNeighboursRecyclerViewAdapter(Context mContext, List<FavoriteNeighbour> mData) {
+    public FavoritesNeighboursRecyclerViewAdapter(Context mContext, ArrayList<Neighbour> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -49,22 +46,27 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(FavoritesNeighboursRecyclerViewAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        FavoriteNeighbour favNeighbour = mData.get(position);
-        Glide.with(holder.nImg.getContext()).load(favNeighbour.getFavoriteAvatar())
+        Neighbour favNeighbour = mData.get(position);
+        Glide.with(holder.nImg.getContext()).load(favNeighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.nImg);
-        holder.nName.setText(mData.get(position).getFavoriteName());
+        holder.nName.setText(mData.get(position).getName());
 
 
         holder.nButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mData.remove(position);
-                notifyDataSetChanged();
+//                mData.remove(position);
+//                notifyDataSetChanged();
                 //EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(favNeighbour));
             }
         });
 
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -83,8 +85,8 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
+//    @Override
+//    public int getItemCount() {
+//        return mData.size();
+//    }
 }
