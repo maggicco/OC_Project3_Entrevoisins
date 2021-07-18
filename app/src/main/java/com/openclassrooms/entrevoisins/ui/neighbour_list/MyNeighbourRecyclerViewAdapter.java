@@ -25,6 +25,7 @@ import com.openclassrooms.entrevoisins.service.ItemClicked;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -72,24 +73,28 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext()
                         , NeighbourProfileDetailsActivity.class);
-                long idNeighbour = mNeighbours.get(position).getId();
-                String avatarUrl = mNeighbours.get(position).getAvatarUrl();
-                String profileNameOnImage = mNeighbours.get(position).getName();
-                String nameCardView = mNeighbours.get(position).getName();
-                String addressCardView = mNeighbours.get(position).getAddress();
-                String numberCardView = mNeighbours.get(position).getPhoneNumber();
-                String internetCardView = mNeighbours.get(position).getName();
-                String aboutMeCardView = mNeighbours.get(position).getAboutMe();
-                //Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
-                intent.putExtra("id", idNeighbour);
-                intent.putExtra("avatar", avatarUrl);
-                intent.putExtra("profileNameOnImage", profileNameOnImage);
-                intent.putExtra("profileName", nameCardView);
-                intent.putExtra("profileAddress", addressCardView);
-                intent.putExtra("profileNumber", numberCardView);
-                intent.putExtra("profileInternet", internetCardView);
-                intent.putExtra("profileAboutMe", aboutMeCardView);
+
+                intent.putExtra("TONEIGHBOURPROFILE", (Serializable) neighbour);
                 v.getContext().startActivity(intent);
+
+                //                long idNeighbour = mNeighbours.get(position).getId();
+//                String avatarUrl = mNeighbours.get(position).getAvatarUrl();
+//                String profileNameOnImage = mNeighbours.get(position).getName();
+//                String nameCardView = mNeighbours.get(position).getName();
+//                String addressCardView = mNeighbours.get(position).getAddress();
+//                String numberCardView = mNeighbours.get(position).getPhoneNumber();
+//                String internetCardView = mNeighbours.get(position).getName();
+//                String aboutMeCardView = mNeighbours.get(position).getAboutMe();
+//                //Log.d(TAG, "onClick: "+ profileNameOnImage + " - " + addressCardView);
+//                intent.putExtra("id", idNeighbour);
+//                intent.putExtra("avatar", avatarUrl);
+//                intent.putExtra("profileNameOnImage", profileNameOnImage);
+//                intent.putExtra("profileName", nameCardView);
+//                intent.putExtra("profileAddress", addressCardView);
+//                intent.putExtra("profileNumber", numberCardView);
+//                intent.putExtra("profileInternet", internetCardView);
+//                intent.putExtra("profileAboutMe", aboutMeCardView);
+//                v.getContext().startActivity(intent);
             }
         });
 
