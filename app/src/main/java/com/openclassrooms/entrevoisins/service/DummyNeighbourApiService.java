@@ -28,6 +28,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      * @return
      */
 
+    //override get fav neighbour
     @Override
     public List<Neighbour> getFavoriteNeighbours() {
         return favoriteNeighbours;
@@ -47,6 +48,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         favoriteNeighbours.remove(neighbour);
     }
 
+    //addFavoriteNeighbour
     @Override
     public void addFavorite(Neighbour neighbour) {
         favoriteNeighbours.add(neighbour);

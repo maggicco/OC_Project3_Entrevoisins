@@ -25,6 +25,9 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
+    /** Setting boolean favoriteNeighbour */
+    private boolean favoriteNeighbour;
+
     public Neighbour(Neighbour currentNeighbour) {
     }
 
@@ -93,6 +96,15 @@ public class Neighbour {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+    //getter and setter favoriteNeighbour
+    public boolean isFavoriteNeighbour() {
+        return favoriteNeighbour;
+    }
+
+    public void setFavoriteNeighbour(boolean favoriteNeighbour) {
+        this.favoriteNeighbour = favoriteNeighbour;
     }
 
     @Override
