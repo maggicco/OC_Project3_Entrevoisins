@@ -35,9 +35,14 @@ public class FavoriteListNeighbourFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Neighbour> favList;
 
-    public FavoriteListNeighbourFragment() {
-        // Required empty public constructor
+
+    // TODO: 18/07/2021 see if delete 
+    public static FavoriteListNeighbourFragment newInstance() {
+        FavoriteListNeighbourFragment fragment = new FavoriteListNeighbourFragment();
+        return fragment;
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

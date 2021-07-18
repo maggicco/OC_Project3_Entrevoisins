@@ -35,7 +35,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     NeighbourApiService mApiService = DI.getNeighbourApiService();
     Neighbour currentNeighbour;
 
-    List<Neighbour> favList;
+    List<Neighbour> favList =  new ArrayList<>();
     private boolean favListStatus;
 
     @Override
@@ -60,7 +60,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
             // Get current neighbour // Comparer les ids
         //}
 
-        // getting data from intent
+        // setting data from intent
         Glide.with(this).asBitmap().load(currentNeighbour.getAvatarUrl()).into(profileAvatar);
         imageViewName.setText(currentNeighbour.getName());
         cardViewProfileName.setText(currentNeighbour.getName());
@@ -80,13 +80,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
                 //mApiService.set(currentNeighbour);
 
-                if (flag) {
-                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-                            R.drawable.ic_star_yellow_empty_24dp));
-
-                    flag = false;
-                }
-                else if(!flag) {
+                if(!flag) {
                     //                // test si currentNeighbour est déja dans la list
                     //trying to add fav neighbour
 //                    for (int i = 0; i< favList.size(); i++) {
@@ -95,11 +89,26 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 //                        }
 //                    }
 
+
+                    mApiService.addFavorite(currentNeighbour);
+                    favList.add(currentNeighbour);
+                    favListStatus = true;
+                    this.notifyDataSetChanged();
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_full_24dp));
 
                     flag = true;
                 }
+                else if (flag) {
+                    fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            R.drawable.ic_star_yellow_empty_24dp));
+
+                    flag = false;
+                    favListStatus = false;
+                }
+            }
+
+            private void notifyDataSetChanged() {
             }
         });
 
