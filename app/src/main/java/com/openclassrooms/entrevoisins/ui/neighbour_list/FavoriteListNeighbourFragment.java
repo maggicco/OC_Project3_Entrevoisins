@@ -29,11 +29,11 @@ public class FavoriteListNeighbourFragment extends Fragment {
     Context mContext;
     Adapter myAdapter;
     Button buttonDelete;
-    NeighbourApiService mApiService = DI.getNeighbourApiService();
+    NeighbourApiService mApiService;
 
     View view;
     private RecyclerView recyclerView;
-    private List<Neighbour> favList;
+    private List<Neighbour> mNeighbours;
 
 
     // TODO: 18/07/2021 see if delete 
@@ -52,7 +52,7 @@ public class FavoriteListNeighbourFragment extends Fragment {
         recyclerView = view.findViewById(R.id.fav_recyclerview);
         //setting recycler view adapter
         FavoritesNeighboursRecyclerViewAdapter favoritesNeighboursRecyclerViewAdapter =
-                new FavoritesNeighboursRecyclerViewAdapter(getContext(), (ArrayList<Neighbour>) favList);
+                new FavoritesNeighboursRecyclerViewAdapter(getContext(), (ArrayList<Neighbour>) mNeighbours);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(favoritesNeighboursRecyclerViewAdapter);
         return view;
@@ -61,17 +61,14 @@ public class FavoriteListNeighbourFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        favList.add(new Neighbour(12, "Ludovic", "https://i.pravatar.cc/150?u=a042581f3e39026702d", "Saint-Pierre-du-Mont à 5km",
-                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot.."));
-        //mApiService.getFavoriteNeighbours();
+        mApiService = DI.getNeighbourApiService();
 
     }
 
 
     private void initList() {
-        favList = mApiService.getFavoriteNeighbours();
-        //recyclerView.setAdapter(new FavoritesNeighboursRecyclerViewAdapter(favList));
+        mNeighbours = mApiService.getFavoriteNeighbours();
+        //recyclerView.setAdapter(new FavoritesNeighboursRecyclerViewAdapter(mNeighbours,false));
     }
 
     @Override

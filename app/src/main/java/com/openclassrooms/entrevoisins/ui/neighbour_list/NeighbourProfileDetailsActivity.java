@@ -34,7 +34,7 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     FloatingActionButton fab;
     private boolean flag = true;
     NeighbourApiService mApiService = DI.getNeighbourApiService();
-
+    private Neighbour mNeighbour;
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
     Neighbour currentNeighbour;
 
@@ -75,13 +75,20 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
 //        //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
+        if (mNeighbour.isFavoriteNeighbour())
+            fab.setImageResource(R.drawable.ic_star_yellow_full_24dp);
+        else
+            fab.setImageResource(R.drawable.ic_star_yellow_empty_24dp);
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                new DummyNeighbourApiService().favoriteStatus(mNeighbour.getId());
+                mNeighbour.setFavoriteNeighbour(!mNeighbour.isFavoriteNeighbour());
                 // set neighbour favorite
-                currentNeighbour.setFavoriteNeighbour(currentNeighbour.isFavoriteNeighbour());
+                //currentNeighbour.setFavoriteNeighbour(currentNeighbour.isFavoriteNeighbour());
                 //mApiService.set(currentNeighbour);
 
                 if(!flag) {

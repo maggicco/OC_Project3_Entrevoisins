@@ -31,6 +31,11 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public List<Neighbour> getFavoriteNeighbours() {
 
+        for(int i = 0; i < neighbours.size(); i++) {
+            if (neighbours.get(i).isFavoriteNeighbour()){
+                favoriteNeighbours.add(neighbours.get(i));
+            }
+        }
         return favoriteNeighbours;
     }
 
@@ -40,6 +45,10 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         // if neighbour id is equal favoriteNeighbour id setFavorite
 //            if(neighbour.getId()==favoriteNeighbours.get)
 //        }
+        for(Neighbour neighbour:getNeighbours()){
+            if(neighbour.getId()==id)
+                neighbour.setFavoriteNeighbour(!neighbour.isFavoriteNeighbour());
+        }
     }
 
     /**

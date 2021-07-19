@@ -64,6 +64,12 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
 
     }
 
+    @Override
+    public int getItemCount() {
+        return mNeighbours.size();
+
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView nImg;
@@ -80,9 +86,4 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return mNeighbours.size();
-//        return 0;
-    }
 }
