@@ -29,15 +29,16 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getFavoriteNeighbours();
 
+    void addFavorite(Neighbour neighbour);
 
-    //Added new  function
+    void favoriteStatus(long id);
+
     /**
      * Deletes a favorite neighbour
      * @param favNeighbour
      */
     void deleteFavoriteNeighbour(Neighbour favNeighbour);
 
-    void addFavorite(Neighbour neighbour);
     /**
      * Create a neighbour
      * @param neighbour

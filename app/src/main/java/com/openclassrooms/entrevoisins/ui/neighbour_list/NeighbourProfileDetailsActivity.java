@@ -15,6 +15,7 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourGenerator;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     FloatingActionButton fab;
     private boolean flag = true;
     NeighbourApiService mApiService = DI.getNeighbourApiService();
+
+    private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
     Neighbour currentNeighbour;
 
     List<Neighbour> favList =  new ArrayList<>();
@@ -77,23 +80,22 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                // set neighbour favorite
+                currentNeighbour.setFavoriteNeighbour(currentNeighbour.isFavoriteNeighbour());
                 //mApiService.set(currentNeighbour);
 
                 if(!flag) {
                     //                // test si currentNeighbour est déja dans la list
                     //trying to add fav neighbour
-//                    for (int i = 0; i< favList.size(); i++) {
-//                        if(favList.get(i).isFavoriteNeighbour()) {
-//                            //favList.add(currentNeighbour.getId());
+//                    for (int i = 0; i < neighbours.size(); i++) {
+//                        if(neighbours.get(i).isFavoriteNeighbour()) {
+//                            favList.add(neighbours.get(i));
 //                        }
 //                    }
-
-
                     mApiService.addFavorite(currentNeighbour);
-                    favList.add(currentNeighbour);
-                    favListStatus = true;
-                    this.notifyDataSetChanged();
+                    //favList.add(currentNeighbour);
+                    //favListStatus = true;
+                    //this.notifyDataSetChanged();
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_full_24dp));
 
@@ -106,9 +108,6 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
                     flag = false;
                     favListStatus = false;
                 }
-            }
-
-            private void notifyDataSetChanged() {
             }
         });
 

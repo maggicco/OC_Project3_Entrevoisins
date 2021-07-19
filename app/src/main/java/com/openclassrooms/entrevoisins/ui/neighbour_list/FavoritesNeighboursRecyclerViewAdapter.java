@@ -83,5 +83,6 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
     @Override
     public int getItemCount() {
         return mNeighbours.size();
+//        return 0;
     }
 }

@@ -34,7 +34,13 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         return favoriteNeighbours;
     }
 
+    @Override
+    public void favoriteStatus(long id) {
 
+        // if neighbour id is equal favoriteNeighbour id setFavorite
+//            if(neighbour.getId()==favoriteNeighbours.get)
+//        }
+    }
 
     /**
      * {@inheritDoc}
