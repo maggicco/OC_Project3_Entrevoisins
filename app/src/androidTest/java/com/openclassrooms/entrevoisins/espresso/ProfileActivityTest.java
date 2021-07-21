@@ -60,17 +60,41 @@ public class ProfileActivityTest {
     @Test
     public void TestNeighbourProfileActivityStarted(){
 
-
         //checking if activity starts
         Intent intent = new Intent(Intent.ACTION_PICK);
         mActivityRule.launchActivity(intent);
-        //onData(anything()).atPosition(0).perform(click());
-        //onData(allOf(is(instanceOf(NeighbourProfileDetailsActivity.class)), is("Americano"))).perform(click());
+        onData(anything()).atPosition(0).perform(click());
+        //onData(allOf(is(instanceOf(NeighbourProfileDetailsActivity.class)), is("Carolina"))).perform(click());
 
 
 
 
         //onData(anything()).inAdapterView(withId(R.id.list_neighbours)).atPosition(0).perform(click());
+
+        //check data matches<<<<<<<<<<<<<<<<<<
+//        public void testListViewPeople() {
+//            List<Person> listPeople = DataProvider.getMockPeopleSet1();
+//            for (int position = 0; position < listPeople.size(); position++) {
+//                onData(is(instanceOf(Person.class)))
+//                        .inAdapterView(withId(R.id.list_view))
+//                        .atPosition(position)
+//                        .onChildView(withText(listPeople.get(position).getName()))
+//                        .check(matches(isDisplayed()));
+//            }
+//        }
+
+        //click on item <<<<<<<<<<<<<<<<<
+//        EspressoTestUtils.clickAdapterViewItem(...)
+///**
+// * Performs a click on an item in an adapter view, such as GridView or ListView
+// * @param position
+// * @param resourceId of adapter view holding the item that should be clicked
+// */
+//        public static void clickAdapterViewItem(int position, int resourceId) {
+//            onData(anything()).inAdapterView(allOf(withId(resourceId), isDisplayed()))
+//                    .atPosition(position).perform(click());
+//        }
+
 
     }
 

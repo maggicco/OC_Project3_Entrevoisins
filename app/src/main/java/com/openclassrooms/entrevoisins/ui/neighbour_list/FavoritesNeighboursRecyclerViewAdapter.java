@@ -32,6 +32,7 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
     public FavoritesNeighboursRecyclerViewAdapter(List<Neighbour> item) {
 
         this.mNeighbours = item;
+
     }
 
     @Override
@@ -58,6 +59,7 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
                 new DummyNeighbourApiService().favoriteStatus(favNeighbour.getId());
                 favNeighbour.setFavoriteNeighbour(favNeighbour.isFavoriteNeighbour());
                 mNeighbours.remove(position);
+                notifyDataSetChanged();
             }
         });
 

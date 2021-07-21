@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
+import java.util.function.ToDoubleBiFunction;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -40,4 +41,20 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+    @Test
+    public void getFavoriteNeighboursWithSuccess() {
+        //same as normal neighbour but in service getFavorite and in DI
+        List<Neighbour> neighbours = service.getFavoriteNeighbours();
+        List<Neighbour> expectedNeighbours = DI.getNeighbourApiService().getFavoriteNeighbours();
+        assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+    }
+
+    // TODO: 21/07/2021 modify test for delete fav neighbour 
+//    @Test
+//    public void deleteFavoriteNeighbourWithSuccess() {
+//        Neighbour neighbourToDelete = service.getFavoriteNeighbours().get(0);
+//        service.deleteNeighbour(neighbourToDelete);
+//        assertFalse(service.getNeighbours().contains(neighbourToDelete));
+//    }
 }
