@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.service.ItemClicked;
 
 import org.greenrobot.eventbus.EventBus;
@@ -25,11 +26,8 @@ import java.util.List;
 
 public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter<FavoritesNeighboursRecyclerViewAdapter.ViewHolder> {
 
-    Context mContext;
     List<Neighbour> mNeighbours;
 
-    public FavoritesNeighboursRecyclerViewAdapter() {
-    }
 
     public FavoritesNeighboursRecyclerViewAdapter(List<Neighbour> item) {
 
@@ -57,8 +55,9 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
         holder.nButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().post(new DeleteNeighbourEvent(favNeighbour));
-                notifyDataSetChanged();
+                new DummyNeighbourApiService().favoriteStatus(favNeighbour.getId());
+                favNeighbour.setFavoriteNeighbour(favNeighbour.isFavoriteNeighbour());
+                mNeighbours.remove(position);
             }
         });
 
@@ -66,8 +65,9 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public int getItemCount() {
+
         return mNeighbours.size();
-//return 0;
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,9 +79,9 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
         public ViewHolder(View itemView) {
             super(itemView);
 
-            nImg = (ImageView) itemView.findViewById(R.id.item_list_avatar);
-            nName = (TextView) itemView.findViewById(R.id.item_list_name);
-            nButton = (ImageButton) itemView.findViewById(R.id.item_list_delete_button);
+            nImg = itemView.findViewById(R.id.item_list_avatar);
+            nName = itemView.findViewById(R.id.item_list_name);
+            nButton = itemView.findViewById(R.id.item_list_delete_button);
 
         }
     }
