@@ -2,10 +2,13 @@ package com.openclassrooms.entrevoisins.espresso;
 
 
 import android.content.Intent;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.contrib.NavigationViewActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -15,6 +18,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,6 +32,7 @@ import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 
+import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -52,18 +57,49 @@ import static org.hamcrest.Matchers.is;
 public class ProfileActivityTest {
 
     @Rule
-    public ActivityTestRule<NeighbourProfileDetailsActivity> mActivityRule =
-            new ActivityTestRule<>(NeighbourProfileDetailsActivity.class, false, false);
-
-
+    public ActivityTestRule<ListNeighbourActivity> activityTestRule =
+            new ActivityTestRule<>(ListNeighbourActivity.class,true,false);
 
     @Test
-    public void TestNeighbourProfileActivityStarted(){
+    public void customizeIntent(){
 
-        //checking if activity starts
         Intent intent = new Intent(Intent.ACTION_PICK);
-        mActivityRule.launchActivity(intent);
-        onData(anything()).atPosition(0).perform(click());
+        activityTestRule.launchActivity(intent);
+    }
+
+//    // This is fixed
+//    private static int ITEMS_COUNT = 12;
+//
+//    private ListNeighbourActivity mActivity;
+//
+//    @Rule
+//    public ActivityTestRule<ListNeighbourActivity> mainActivityActivityTestRule =
+//            new ActivityTestRule<ListNeighbourActivity>(ListNeighbourActivity.class);
+//
+//    @Test
+//    public void TestDetail() {
+//        onView(withId(R.id.list_neighbours)).perform(NavigationViewActions.navigateTo(R.id.profile_details_activity));
+//    }
+
+//    @Rule
+//    public IntentsTestRule<ListNeighbourActivity> intentsTestRule =
+//            new IntentsTestRule<>(ListNeighbourActivity.class);
+
+//    @Rule
+//    public ActivityTestRule<NeighbourProfileDetailsActivity> mActivityRule =
+//            new ActivityTestRule<>(NeighbourProfileDetailsActivity.class, false, false);
+//
+
+
+//    @Test
+//    public void TestNeighbourProfileActivityStarted(){
+//
+//        //checking if activity starts
+//        Intent intent = new Intent(Intent.ACTION_PICK);
+//        intentsTestRule.launchActivity(intent);
+        //>>> check it <<<<<<<
+//        onView(Matchers.allOf(withId(R.id.list_neighbours),isDisplayed()))
+//                .perform(actionOnItemAtPosition(position, click()));
         //onData(allOf(is(instanceOf(NeighbourProfileDetailsActivity.class)), is("Carolina"))).perform(click());
 
 
@@ -98,4 +134,4 @@ public class ProfileActivityTest {
 
     }
 
-}
+
