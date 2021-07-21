@@ -31,8 +31,8 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
     public FavoritesNeighboursRecyclerViewAdapter() {
     }
 
-    public FavoritesNeighboursRecyclerViewAdapter(Context mContext, List<Neighbour> item) {
-        this.mContext = mContext;
+    public FavoritesNeighboursRecyclerViewAdapter(List<Neighbour> item) {
+
         this.mNeighbours = item;
     }
 
@@ -67,7 +67,7 @@ public class FavoritesNeighboursRecyclerViewAdapter extends RecyclerView.Adapter
     @Override
     public int getItemCount() {
         return mNeighbours.size();
-
+//return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

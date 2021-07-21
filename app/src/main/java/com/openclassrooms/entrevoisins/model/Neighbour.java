@@ -26,11 +26,9 @@ public class Neighbour implements Serializable {
     /** About me */
     private String aboutMe;
 
-    /** Setting boolean favoriteNeighbour */
+    /** boolean favoriteNeighbour */
     private boolean favoriteNeighbour;
 
-    public Neighbour(Neighbour currentNeighbour) {
-    }
 
     /**
      * Constructor

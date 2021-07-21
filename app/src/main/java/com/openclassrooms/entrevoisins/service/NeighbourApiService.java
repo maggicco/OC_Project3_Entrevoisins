@@ -29,15 +29,9 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getFavoriteNeighbours();
 
-    void addFavorite(Neighbour neighbour);
 
     void favoriteStatus(long id);
 
-    /**
-     * Deletes a favorite neighbour
-     * @param favNeighbour
-     */
-    void deleteFavoriteNeighbour(Neighbour favNeighbour);
 
     /**
      * Create a neighbour

@@ -3,6 +3,8 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,50 +27,48 @@ import java.util.List;
 
 
 public class FavoriteListNeighbourFragment extends Fragment {
-
-    Context mContext;
-    Adapter myAdapter;
-    Button buttonDelete;
-    NeighbourApiService mApiService;
-
-    View view;
-    private RecyclerView recyclerView;
+    private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
+    private RecyclerView mRecyclerView;
 
 
-    // TODO: 18/07/2021 see if delete 
-    public static FavoriteListNeighbourFragment newInstance() {
+
+    /**
+     * Create and return a new instance
+     * @return @{@link NeighbourFragment}
+     */
+    public static FavoriteListNeighbourFragment newInstance(int pos) {
         FavoriteListNeighbourFragment fragment = new FavoriteListNeighbourFragment();
         return fragment;
-    }
-
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_favorites_list_neighbour, container, false);
-        recyclerView = view.findViewById(R.id.fav_recyclerview);
-        //setting recycler view adapter
-        FavoritesNeighboursRecyclerViewAdapter favoritesNeighboursRecyclerViewAdapter =
-                new FavoritesNeighboursRecyclerViewAdapter(getContext(), (ArrayList<Neighbour>) mNeighbours);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(favoritesNeighboursRecyclerViewAdapter);
-        return view;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
-
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_favorites_list_neighbour, container, false);
+        Context context = view.getContext();
+        mRecyclerView = (RecyclerView) view;
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        return view;
+    }
+
+    /**
+     * Init the List of neighbours
+     */
     private void initList() {
-        mNeighbours = mApiService.getFavoriteNeighbours();
-        //recyclerView.setAdapter(new FavoritesNeighboursRecyclerViewAdapter(mNeighbours,false));
+
+            mNeighbours = mApiService.getFavoriteNeighbours();
+            mRecyclerView.setAdapter(new FavoritesNeighboursRecyclerViewAdapter(mNeighbours));
+
+
     }
 
     @Override
@@ -95,7 +95,7 @@ public class FavoriteListNeighbourFragment extends Fragment {
      */
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
-        mApiService.deleteFavoriteNeighbour(event.neighbour);
+        mApiService.deleteNeighbour(event.neighbour);
         initList();
     }
 

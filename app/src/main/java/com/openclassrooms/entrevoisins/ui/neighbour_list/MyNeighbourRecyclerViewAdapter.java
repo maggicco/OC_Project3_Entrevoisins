@@ -42,7 +42,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         this.mNeighbours = items;
 
     }
-    public MyNeighbourRecyclerViewAdapter(Context context, List<Neighbour> items) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, Context context) {
         this.mNeighbours = items;
         activity = (ItemClicked) context;
 
