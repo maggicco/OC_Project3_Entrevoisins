@@ -67,6 +67,18 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 //        //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
 
+        if(mNeighbour.isFavoriteNeighbour()) {
+
+            fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                    R.drawable.ic_star_yellow_full_24dp));
+
+        }
+        else  {
+            fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                    R.drawable.ic_star_yellow_empty_24dp));
+
+        }
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
