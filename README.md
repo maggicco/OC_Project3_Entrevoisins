@@ -4,7 +4,7 @@
 ## Télécharger l'application Entrevoisins de GitHub
 
 Télecharger dossier avec project en cliquant sur lien >>>
-https://github.com/maggicco/OC_Project3_Entrevoisins
+[Code Entrevoisins](https://github.com/maggicco/OC_Project3_Entrevoisins)
 
 Cliquez sur le bouton vert Code sur la droite.
 
@@ -23,7 +23,7 @@ Déterminer un emplacement sur votre ordinateur et deplacer dossier décompress�
 
 ## Android Studio
 1. Téléchargez Android Studio
-La première étape est de télécharger le programme d’installation. Il est disponible pour Windows, Mac et Linux, et vous trouverez le lien de téléchargement sur son site officiel > https://developer.android.com/studio?hl=fr&gclid=CjwKCAjwruSHBhAtEiwA_qCppumTLFA3BOETqfUdxp5C7jZuHbPqssC4PViPqDSefrMDKHHmekBQpBoCCUYQAvD_BwE&gclsrc=aw.ds
+La première étape est de télécharger le programme d’installation. Il est disponible pour Windows, Mac et Linux, et vous trouverez le lien de téléchargement sur son site officiel >>> [Android Studio](https://developer.android.com/studio?hl=fr&gclid=CjwKCAjwruSHBhAtEiwA_qCppumTLFA3BOETqfUdxp5C7jZuHbPqssC4PViPqDSefrMDKHHmekBQpBoCCUYQAvD_BwE&gclsrc=aw.ds)
 et cliquez sur le bouton "Télécharger Android Studio".
 
 ![2021-07-22_22h28_52](https://user-images.githubusercontent.com/28864785/126705428-d0b805a5-42fe-405d-a8af-c09e3b795880.png)
