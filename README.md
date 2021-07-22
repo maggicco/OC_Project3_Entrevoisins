@@ -1,4 +1,4 @@
-# Comment compiler et exécuter application avec android studio
+# Comment compiler et exécuter l'application Entrevoisins avec Android Studio
 
 
 ## Télécharger un dossier de GitHub
