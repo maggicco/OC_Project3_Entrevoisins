@@ -32,7 +32,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
                 return new FavoriteListNeighbourFragment();
             default:
                 return null;
-
         }
     }
 

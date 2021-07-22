@@ -29,9 +29,11 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getFavoriteNeighbours();
 
-
+    /**
+     * State of a favorite neighbour
+     * @param id
+     */
     void favoriteStatus(long id);
-
 
     /**
      * Create a neighbour

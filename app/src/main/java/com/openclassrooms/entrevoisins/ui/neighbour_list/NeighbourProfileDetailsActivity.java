@@ -26,9 +26,6 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
     FloatingActionButton fab;
     private Neighbour mNeighbour;
 
-
-    private boolean favListStatus;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,19 +53,18 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
         cardViewProfileMail.setText("www.facebook.fr/" + mNeighbour.getName());
         cardViewProfileAboutMe.setText(mNeighbour.getAboutMe());
 
-//        //Favorites Button
+        //Favorites Button
         fab = findViewById(R.id.floatingActionButton);
 
         if(mNeighbour.isFavoriteNeighbour()) {
 
             fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                     R.drawable.ic_star_yellow_full_24dp));
-
         }
         else  {
+
             fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                     R.drawable.ic_star_yellow_empty_24dp));
-
         }
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +78,10 @@ public class NeighbourProfileDetailsActivity extends AppCompatActivity {
 
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_full_24dp));
-
                 }
                 else  {
                     fab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_star_yellow_empty_24dp));
-
                 }
             }
         });
