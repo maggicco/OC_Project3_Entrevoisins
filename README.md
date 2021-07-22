@@ -1,7 +1,7 @@
 # Comment compiler et exécuter l'application Entrevoisins avec Android Studio
 
 
-## Télécharger un dossier de GitHub
+## Télécharger l'application Entrevoisins de GitHub
 
 Télecharger dossier avec project en cliquant sur lien >>>
 https://github.com/maggicco/OC_Project3_Entrevoisins
