@@ -59,13 +59,12 @@ public class NeighbourServiceTest {
         assertFalse(service.getFavoriteNeighbours().contains(deleteFavorite));
     }
 
-    // TODO: 22/07/2021 to fix create new neighbour 
     @Test
     public void createNewNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
         Neighbour stephane = new Neighbour(6, "Stephane", "https://i.pravatar.cc/150?u=a042581f4e29026704c", "Saint-Pierre-du-Mont à 5km",
                 "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.createNeighbour(stephane);
-        assertTrue(neighbours.contains("Stephane"));
+        assertTrue(neighbours.contains(stephane));
     }
 }
