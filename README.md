@@ -1,3 +1,4 @@
-# OpenClassrooms
+# OpenClassrooms - Projet 3 - Application Entrevoisin 
 
-Ce dépôt contient une mini-application pour le P3 du parcours **Grande École du Numérique**.
+comment compiler et exécuter application android studio
+
