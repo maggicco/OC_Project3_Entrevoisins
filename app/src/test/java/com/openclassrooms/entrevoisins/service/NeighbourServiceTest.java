@@ -51,18 +51,12 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
-    // TODO: 21/07/2021 modify test for delete fav neighbour
-//    @Test
-//    public void deleteFavoriteNeighbourWithSuccess() {
-//        Neighbour stephane = new Neighbour(55, "Stephane", "https://i.pravatar.cc/150?u=a042581f4e29026704a", "Saint-Pierre-du-Mont ; 5km",
-//                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
-//        service.createNeighbour(stephane);
-//        stephane.setFavoriteNeighbour(stephane.isFavoriteNeighbour());
-//        stephane.isFavoriteNeighbour();
-//        new DummyNeighbourApiService().favoriteStatus(mNeighbour.getId());
-//        mNeighbour.setFavoriteNeighbour(mNeighbour.isFavoriteNeighbour());
-//        Neighbour neighbourToDelete = service.getFavoriteNeighbours().get(55);
-//        service.deleteNeighbour(neighbourToDelete);
-//        assertFalse(service.getFavoriteNeighbours().contains(neighbourToDelete));
-//    }
+    @Test
+    public void deleteFavoriteNeighbourWithSuccess() {
+
+        service.favoriteStatus(1);
+        Neighbour deleteFavorite = (Neighbour) service.getFavoriteNeighbours().get(0);
+        service.deleteNeighbour(deleteFavorite);
+        assertFalse(service.getFavoriteNeighbours().contains(deleteFavorite));
+    }
 }
