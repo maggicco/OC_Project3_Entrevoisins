@@ -30,13 +30,15 @@ et cliquez sur le bouton "Télécharger Android Studio".
 
 Dès que c’est fait, cliquez sur le fichier téléchargé pour démarrer l’installation.
 
-2. Démarrez l’installation
-Android Studio est un outil extrêmement complexe, et il n’y a pas beaucoup de difficulté car sur la plupart des écrans, vous n’avez besoin que de cliquez sur Suivantou suivant.
+### 2. Démarrez l’installation
+Android Studio est un outil extrêmement complexe, et il n’y a pas beaucoup de difficulté car sur la plupart des écrans, vous n’avez besoin que de cliquez sur Suivant.
 
-Le seul endroit où vous pouvez avoir des doutes est dans la configuration du RAM maximale à consacrer à l’émulateur Android. La configuration recommandée est bien, donc dans cette fenêtre appuyer à nouveau sur Suivant./br
+Le seul endroit où vous pouvez avoir des doutes est dans la configuration du RAM maximale à consacrer à l’émulateur Android. 
+La configuration recommandée est bien, donc dans cette fenêtre appuyer à nouveau sur Suivant.
+
 Sinon, il n’y a pas de difficulté d’installation majeure et le processus lui-même va bientôt commencer. Cela peut prendre un certain temps si votre PC fonctionne à la puissance correcte, alors soyez patient. Une fois que j’ai fini appuyez sur Terminer pour Android Studio à ouvrir pour la première fois.
 
-3. Configuration initiale
+### 3. Configuration initiale
 La première chose que vous verrez lors de l’ouverture d’Android Studio pour la première fois est un écran comme celui-ci. On vous demande juste si vous voulez importer les paramètres d’une version précédente. Android Studio détecte généralement les paramètres par lui-même, et si vous n’avez enregistré aucun paramètre précédent, il sera vérifié. N’importez pas les paramètres ou n’importez pas la configuration.
 
 La fenêtre suivante qui apparaît vous demande l’autorisation de envoyer des données d’utilisation et des statistiques à Google, afin qu’ils puissent être utilisés pour améliorer l’application. C’est complètement optionnel, alors acceptez-le avec Envoyer les statistiques d’utilisation à Google ou non, dans ce cas en cliquant sur Ne pas envoyer.
@@ -44,9 +46,9 @@ Après cet assistant de préconfiguration, le Assistant de configuration. En vé
 
 La première chose qui vous est demandée est de savoir si vous voulez installation standard ou personnalisée depuis Android Studio. Dans la grande majorité des cas, l’installation standard est suffisante et vous fera gagner du temps et des maux de tête occasionnels.
 Alors tu dois choisir quel thème utiliserez-vous dans l’éditeur de code. L’usine en apporte deux: le thème Light Light et le thème Darcula dark. Choisissez celui qui vous convainc le plus, bien que vous puissiez toujours le modifier plus tard dans les options, ainsi que personnaliser les couleurs et les polices si vous le souhaitez.
-4. Téléchargez les composants
+### 4. Téléchargez les composants
 Vous vous souvenez quand nous avons dit au début que l’installation d’Android Studio était un gâchis dans le passé? Une partie du blâme revient à Java et au SDK Android, mais le processus est désormais automatique. Si vous avez choisi l’installation standard, Android Studio choisit les composants à télécharger pour vous.
 Encore une fois, le téléchargement est sécurisé dépasser 500 Mo, assurez-vous donc que vous êtes connecté à un réseau Wi-Fi et que vous disposez de suffisamment d’espace disque. Laissez le PC faire le travail à votre place et attendez la fin du téléchargement et de l’installation. Une fois terminé, appuyez sur Terminer.
 
-5. Ouverture d'Android Studio
+### 5. Ouverture d'Android Studio
 Android Studio est déjà installé sur votre système et il vous montrera l’écran de bienvenue.
