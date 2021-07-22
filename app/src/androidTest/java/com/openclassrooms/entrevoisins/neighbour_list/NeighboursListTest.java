@@ -69,6 +69,7 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
 
+    // TODO: 22/07/2021 modify it by trying to set fav
     ///delete favorites
     /**
      * When we delete an item, the item is no more shown

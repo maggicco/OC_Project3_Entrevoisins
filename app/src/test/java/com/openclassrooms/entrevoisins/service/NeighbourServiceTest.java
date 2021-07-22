@@ -14,6 +14,7 @@ import java.util.function.ToDoubleBiFunction;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test on Neighbour service
@@ -22,7 +23,6 @@ import static org.junit.Assert.assertThat;
 public class NeighbourServiceTest {
 
     private NeighbourApiService service;
-    private Neighbour mNeighbour;
 
     @Before
     public void setup() {
@@ -53,10 +53,19 @@ public class NeighbourServiceTest {
 
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
-
         service.favoriteStatus(1);
         Neighbour deleteFavorite = (Neighbour) service.getFavoriteNeighbours().get(0);
         service.deleteNeighbour(deleteFavorite);
         assertFalse(service.getFavoriteNeighbours().contains(deleteFavorite));
+    }
+
+    // TODO: 22/07/2021 to fix create new neighbour 
+    @Test
+    public void createNewNeighboursWithSuccess() {
+        List<Neighbour> neighbours = service.getNeighbours();
+        Neighbour stephane = new Neighbour(6, "Stephane", "https://i.pravatar.cc/150?u=a042581f4e29026704c", "Saint-Pierre-du-Mont à 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
+        service.createNeighbour(stephane);
+        assertTrue(neighbours.contains("Stephane"));
     }
 }
