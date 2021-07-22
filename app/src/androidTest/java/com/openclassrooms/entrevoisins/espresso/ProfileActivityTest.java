@@ -61,6 +61,12 @@ public class ProfileActivityTest {
             new ActivityTestRule<>(ListNeighbourActivity.class,true,false);
 
     @Test
+    public void onClickRecyclerView(){
+        Espresso.onView(withId(R.id.main_content)).
+                perform(RecyclerViewActions.actionOnItemAtPosition(1,click()));
+    }
+
+    @Test
     public void customizeIntent(){
 
         Intent intent = new Intent(Intent.ACTION_PICK);
