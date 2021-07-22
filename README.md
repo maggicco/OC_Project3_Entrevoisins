@@ -1,14 +1,39 @@
 # Comment compiler et exécuter application avec android studio
 
+
+## Télécharger un dossier de GitHub
+
+Télecharger dossier avec project en cliquant sur lien >>>
+https://github.com/maggicco/OC_Project3_Entrevoisins
+
+Cliquez sur le bouton vert Code sur la droite.
+
+![2021-07-22_21h05_29](https://user-images.githubusercontent.com/28864785/126695341-ba97b4e1-8421-4f2a-9d55-e55190ad27f5.png)
+
+
+Cliquez sur le bouton Télécharger le ZIP. Le repository va alors être téléchargé sur votre ordinateur sous la forme d'un fichier .Zip.
+
+![2021-07-22_21h06_28](https://user-images.githubusercontent.com/28864785/126695425-a699b7cf-5315-4ffb-ace8-5b610d55fd4d.png)
+
+
+Ouvrez l'Explorateur de fichiers et accédez au dossier compressé. Pour décompresser l'intégralité du dossier, faites un clic droit pour sélectionner Extraire tout , puis suivez les instructions.
+Déterminer un emplacement sur votre ordinateur et deplacer dossier décompressé
+
+
+
+## Android Studio
 1. Téléchargez Android Studio
 La première étape est de télécharger le programme d’installation. Il est disponible pour Windows, Mac et Linux, et vous trouverez le lien de téléchargement sur son site officiel > https://developer.android.com/studio?hl=fr&gclid=CjwKCAjwruSHBhAtEiwA_qCppumTLFA3BOETqfUdxp5C7jZuHbPqssC4PViPqDSefrMDKHHmekBQpBoCCUYQAvD_BwE&gclsrc=aw.ds
 et cliquez sur le bouton "Télécharger Android Studio".
+
+![2021-07-22_22h28_52](https://user-images.githubusercontent.com/28864785/126705428-d0b805a5-42fe-405d-a8af-c09e3b795880.png)
+
 Dès que c’est fait, cliquez sur le fichier téléchargé pour démarrer l’installation.
 
 2. Démarrez l’installation
 Android Studio est un outil extrêmement complexe, et il n’y a pas beaucoup de difficulté car sur la plupart des écrans, vous n’avez besoin que de cliquez sur Suivantou suivant.
 
-Le seul endroit où vous pouvez avoir des doutes est dans la configuration du RAM maximale à consacrer à l’émulateur Android. La configuration recommandée est bien, donc dans cette fenêtre appuyer à nouveau sur Suivant.
+Le seul endroit où vous pouvez avoir des doutes est dans la configuration du RAM maximale à consacrer à l’émulateur Android. La configuration recommandée est bien, donc dans cette fenêtre appuyer à nouveau sur Suivant./br
 Sinon, il n’y a pas de difficulté d’installation majeure et le processus lui-même va bientôt commencer. Cela peut prendre un certain temps si votre PC fonctionne à la puissance correcte, alors soyez patient. Une fois que j’ai fini appuyez sur Terminer pour Android Studio à ouvrir pour la première fois.
 
 3. Configuration initiale
