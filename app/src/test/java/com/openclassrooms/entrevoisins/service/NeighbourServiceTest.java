@@ -52,6 +52,7 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
+
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
         Neighbour deleteFavorite = (Neighbour) service.getFavoriteNeighbours().get(0);
