@@ -84,16 +84,25 @@ public class NeighboursListTest {
     /**
      * When we delete an item, the item is no more shown
      */
+//    @Test
+//    public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
+//        //List<Neighbour> neighbours = service.getNeighbours();
+//        // Given : We remove the element at position 2
+//        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT));
+//        // When perform a click on a delete icon
+//        onView(ViewMatchers.withId(R.id.fav_recyclerview))
+//                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+//        // Then : the number of element is 11
+//        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT-1));
+//    }
+
+    // TODO: 23/07/2021 check on item click if new activity starts
+    /**
+     * Check if activity NeighbourProfileDetail starts
+     */
     @Test
-    public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
-        //List<Neighbour> neighbours = service.getNeighbours();
-        // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT));
-        // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.fav_recyclerview))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
-        // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT-1));
+    public void neighbourProfileDetailActivityStarts() {
+
     }
 
     /**
@@ -101,7 +110,7 @@ public class NeighboursListTest {
      * from list_neighbour recycler view
      */
     @Test
-    public void matchNeighbourName() {
+    public void matchNeighbourProfileDetailName() {
 
         onView(withId(R.id.list_neighbours))
                 .perform(actionOnItemAtPosition(1, click()));
