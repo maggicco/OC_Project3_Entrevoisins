@@ -8,6 +8,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
@@ -20,10 +21,16 @@ import org.junit.runner.RunWith;
 import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
+import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
@@ -36,7 +43,6 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
-    private NeighbourApiService service;
     private ListNeighbourActivity mActivity;
 
     @Rule
@@ -80,7 +86,7 @@ public class NeighboursListTest {
      */
     @Test
     public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
-        List<Neighbour> neighbours = service.getNeighbours();
+        //List<Neighbour> neighbours = service.getNeighbours();
         // Given : We remove the element at position 2
         onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
@@ -88,6 +94,20 @@ public class NeighboursListTest {
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT-1));
+    }
+
+    /**
+     * Check if name match in NeighbourProfileDetail
+     * from list_neighbour recycler view
+     */
+    @Test
+    public void matchNeighbourName() {
+
+        onView(withId(R.id.list_neighbours))
+                .perform(actionOnItemAtPosition(1, click()));
+        onView(withId(R.id.cardViewProfileName))
+                .check(matches(withText(new DummyNeighbourApiService().getNeighbours().get(1).getName())));
+
     }
 
 }
