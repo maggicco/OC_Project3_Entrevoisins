@@ -46,6 +46,7 @@ public class NeighbourServiceTest {
     @Test
     public void getFavoriteNeighboursWithSuccess() {
         //same as normal neighbour but in service getFavorite and in DI
+        service.favoriteStatus(1);
         List<Neighbour> neighbours = service.getFavoriteNeighbours();
         List<Neighbour> expectedNeighbours = DI.getNeighbourApiService().getFavoriteNeighbours();
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
@@ -53,7 +54,6 @@ public class NeighbourServiceTest {
 
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
-        service.favoriteStatus(1);
         Neighbour deleteFavorite = (Neighbour) service.getFavoriteNeighbours().get(0);
         service.deleteNeighbour(deleteFavorite);
         assertFalse(service.getFavoriteNeighbours().contains(deleteFavorite));
@@ -62,7 +62,7 @@ public class NeighbourServiceTest {
     @Test
     public void createNewNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
-        Neighbour stephane = new Neighbour(6, "Stephane", "https://i.pravatar.cc/150?u=a042581f4e29026704c", "Saint-Pierre-du-Mont à 5km",
+        Neighbour stephane = new Neighbour(13, "Stephane", "https://i.pravatar.cc/150?u=a042581f4e29026704c", "Saint-Pierre-du-Mont à 5km",
                 "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.createNeighbour(stephane);
         assertTrue(neighbours.contains(stephane));

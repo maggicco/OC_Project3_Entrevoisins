@@ -1,7 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +15,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.ItemClicked;
 import org.greenrobot.eventbus.EventBus;
 import java.io.Serializable;
 import java.util.List;
@@ -27,15 +25,9 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    ItemClicked activity;
 
-    public MyNeighbourRecyclerViewAdapter( List<Neighbour> items) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         this.mNeighbours = items;
-    }
-
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, Context context) {
-        this.mNeighbours = items;
-        activity = (ItemClicked) context;
     }
 
     @NonNull
