@@ -103,6 +103,14 @@ public class NeighboursListTest {
     @Test
     public void neighbourProfileDetailActivityStarts() {
 
+        onView(withId(R.id.list_neighbours))
+                .perform(actionOnItemAtPosition(1, click()));
+//        .check(withId(R.id.profile_details_activity), isDisplayed()));
+//        onView(withId(R.id.profile_details_activity)), isDisplayed();
+//
+//        onView(withText("dialogText")).check(matches(isDisplayed()));
+//        onView(withId(R.id.myDialogTextId)).check(matches(allOf(withText(myDialogText), isDisplayed()));
+//        onView(withId(android.R.id.button1)).perform(click());
     }
 
     /**
