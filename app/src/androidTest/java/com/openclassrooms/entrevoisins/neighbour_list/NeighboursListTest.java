@@ -1,11 +1,13 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -14,6 +16,7 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,7 +32,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
@@ -130,17 +135,24 @@ public class NeighboursListTest {
     }
 
     /**
-     * Check if name match in NeighbourProfileDetail
+     * Check if name match in NeighbourProfileDetail textView
      * from list_neighbour recycler view
      */
     @Test
     public void matchNeighbourProfileDetailName() {
-
         onView(withId(R.id.list_neighbours))
-                .perform(actionOnItemAtPosition(1, click()));
+                .perform(actionOnItemAtPosition(0, click()));
         onView(withId(R.id.cardViewProfileName))
-                .check(matches(withText(new DummyNeighbourApiService().getNeighbours().get(1).getName())));
+                .check(matches(withText("Caroline")));
 
     }
+
+
+//    ViewInteraction textView = onView(
+//            allOf(withText("FAVORITES"),
+//                    withParent(allOf(withContentDescription("Favorites"),
+//                            withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+//                    isDisplayed()));
+//        textView.check(matches(withText("FAVORITES")));
 
 }
