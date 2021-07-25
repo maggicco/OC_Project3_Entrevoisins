@@ -52,7 +52,6 @@ public class NeighbourServiceTest {
         assertTrue(service.getFavoriteNeighbours().contains(getFavorite));
     }
 
-
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();

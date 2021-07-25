@@ -74,16 +74,14 @@ public class NeighboursListTest {
                 .check(matches(hasMinimumChildCount(1)));
     }
 
-// TODO: 25/07/2021 check if  display only favorites
     /**
      * We ensure that our recyclerview is displaying only favorites
-     * means is empty now
+     * means should be empty
      */
     @Test
     public void myFavoritesNeighboursList_shouldBeEmpty() {
         onView(ViewMatchers.withId(R.id.fav_recyclerview))
                 .check(withItemCount(0));
-                //.check(matches(hasChildCount(0)));
     }
 
     /**
@@ -100,38 +98,14 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
 
-    // TODO: 22/07/2021 modify it by trying to set fav
-    ///delete favorites
-    /**
-     * When we delete an item, the item is no more shown
-     */
-//    @Test
-//    public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
-//        //List<Neighbour> neighbours = service.getNeighbours();
-//        // Given : We remove the element at position 2
-//        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT));
-//        // When perform a click on a delete icon
-//        onView(ViewMatchers.withId(R.id.fav_recyclerview))
-//                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
-//        // Then : the number of element is 11
-//        onView(ViewMatchers.withId(R.id.fav_recyclerview)).check(withItemCount(ITEMS_COUNT-1));
-//    }
-
-    // TODO: 23/07/2021 check on item click if new activity starts
     /**
      * Check if activity NeighbourProfileDetail starts
      */
     @Test
     public void neighbourProfileDetailActivityStarts() {
-
         onView(withId(R.id.list_neighbours))
                 .perform(actionOnItemAtPosition(1, click()));
         onView(allOf(withId(R.id.profile_details_activity), isDisplayed()));
-    //    onView(withId(R.id.profile_details_activity)), isDisplayed();
-//
-//        onView(withText("dialogText")).check(matches(isDisplayed()));
-//        onView(withId(R.id.myDialogTextId)).check(matches(allOf(withText(myDialogText), isDisplayed()));
-//        onView(withId(android.R.id.button1)).perform(click());
     }
 
     /**
@@ -144,15 +118,5 @@ public class NeighboursListTest {
                 .perform(actionOnItemAtPosition(0, click()));
         onView(withId(R.id.cardViewProfileName))
                 .check(matches(withText("Caroline")));
-
     }
-
-
-//    ViewInteraction textView = onView(
-//            allOf(withText("FAVORITES"),
-//                    withParent(allOf(withContentDescription("Favorites"),
-//                            withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
-//                    isDisplayed()));
-//        textView.check(matches(withText("FAVORITES")));
-
 }
