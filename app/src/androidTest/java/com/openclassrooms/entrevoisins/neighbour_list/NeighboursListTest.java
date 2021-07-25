@@ -78,11 +78,11 @@ public class NeighboursListTest {
      * We ensure that our recyclerview is displaying only favorites
      * means should be empty
      */
-    @Test
-    public void myFavoritesNeighboursList_shouldBeEmpty() {
-        onView(ViewMatchers.withId(R.id.fav_recyclerview))
-                .check(withItemCount(0));
-    }
+//    @Test
+//    public void myFavoritesNeighboursList_shouldBeEmpty() {
+//        onView(ViewMatchers.withId(R.id.fav_recyclerview))
+//                .check(withItemCount(0));
+//    }
 
     /**
      * When we delete an item, the item is no more shown
@@ -132,10 +132,16 @@ public class NeighboursListTest {
     }
 
     /**
-     * Check  favorite button in NeighbourProfileDetailActivity
+     * We ensure that our recyclerview is displaying only favorites
+     * means should be empty
+     * Check if  favorite button in NeighbourProfileDetailActivity works
+     * Checking if back arrow button works
      */
     @Test
-    public void checkFavoriteButtonAndDisplay() {
+    public void checkFavoriteButtonAndDisplayFavorites() {
+        onView(ViewMatchers.withId(R.id.fav_recyclerview))
+                .check(withItemCount(0));
+
         onView(withId(R.id.list_neighbours))
                 .perform(actionOnItemAtPosition(0, click()));
         onView(withId(R.id.floatingActionButton)).perform(click());
@@ -152,6 +158,7 @@ public class NeighboursListTest {
 
         onView(withContentDescription("Favorites")).perform(click());
         onView(withId(R.id.fav_recyclerview)).check(withItemCount(0));
+
     }
 
 }
