@@ -119,4 +119,39 @@ public class NeighboursListTest {
         onView(withId(R.id.cardViewProfileName))
                 .check(matches(withText("Caroline")));
     }
+
+    /**
+     * Check if from NeighbourProfileDetailActivity
+     * setDisplayHomeAsUpEnabled works
+     */
+    @Test
+    public void goBackFromNeighbourProfileDetailActivity() {
+        onView(withId(R.id.list_neighbours))
+                .perform(actionOnItemAtPosition(0, click()));
+        onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
+    }
+
+    /**
+     * Check  favorite button in NeighbourProfileDetailActivity
+     */
+    @Test
+    public void checkFavoriteButtonAndDisplay() {
+        onView(withId(R.id.list_neighbours))
+                .perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.floatingActionButton)).perform(click());
+        onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
+
+        onView(withContentDescription("Favorites")).perform(click());
+        onView(withId(R.id.fav_recyclerview)).check(withItemCount(1));
+
+        onView(withContentDescription("My neighbours")).perform(click());
+        onView(withId(R.id.list_neighbours))
+                .perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.floatingActionButton)).perform(click());
+        onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
+
+        onView(withContentDescription("Favorites")).perform(click());
+        onView(withId(R.id.fav_recyclerview)).check(withItemCount(0));
+    }
+
 }
