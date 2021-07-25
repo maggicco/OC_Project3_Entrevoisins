@@ -45,7 +45,7 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavoriteNeighboursWithSuccess() {
-        //same as normal neighbour but in service getFavorite and in DI
+        //same as normal neighbour but in service getFavorite with DI
         service.favoriteStatus(1);
         List<Neighbour> neighbours = service.getFavoriteNeighbours();
         List<Neighbour> expectedNeighbours = DI.getNeighbourApiService().getFavoriteNeighbours();
@@ -55,6 +55,7 @@ public class NeighbourServiceTest {
 
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
+        service.favoriteStatus(1);
         Neighbour deleteFavorite = (Neighbour) service.getFavoriteNeighbours().get(0);
         service.deleteNeighbour(deleteFavorite);
         assertFalse(service.getFavoriteNeighbours().contains(deleteFavorite));
