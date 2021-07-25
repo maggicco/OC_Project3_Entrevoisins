@@ -46,10 +46,10 @@ public class NeighbourServiceTest {
     @Test
     public void getFavoriteNeighboursWithSuccess() {
         //same as normal neighbour but in service getFavorite and in DI
-        service.favoriteStatus(1);
-        List<Neighbour> neighbours = service.getFavoriteNeighbours();
-        List<Neighbour> expectedNeighbours = DI.getNeighbourApiService().getFavoriteNeighbours();
-        assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+        List<Neighbour> neighbours = service.getNeighbours();
+        Neighbour getFavorite = neighbours.get(1);
+        getFavorite.setFavoriteNeighbour(true);
+        assertTrue(service.getFavoriteNeighbours().contains(getFavorite));
     }
 
 
