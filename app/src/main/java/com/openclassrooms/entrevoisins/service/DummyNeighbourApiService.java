@@ -42,13 +42,11 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void favoriteStatus(long id) {
-        //looping neighbours
-        for(Neighbour neighbour:getNeighbours()){
-            if(neighbour.getId()==id)
+        for (Neighbour neighbour : getNeighbours()) {
+            if (neighbour.getId() == id)
                 neighbour.setFavoriteNeighbour(!neighbour.isFavoriteNeighbour());
         }
     }
-
     /**
      * {@inheritDoc}
      * @param neighbour
