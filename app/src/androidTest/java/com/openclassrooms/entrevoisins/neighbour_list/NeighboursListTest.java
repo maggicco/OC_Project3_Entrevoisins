@@ -75,16 +75,6 @@ public class NeighboursListTest {
     }
 
     /**
-     * We ensure that our recyclerview is displaying only favorites
-     * means should be empty
-     */
-//    @Test
-//    public void myFavoritesNeighboursList_shouldBeEmpty() {
-//        onView(ViewMatchers.withId(R.id.fav_recyclerview))
-//                .check(withItemCount(0));
-//    }
-
-    /**
      * When we delete an item, the item is no more shown
      */
     @Test
