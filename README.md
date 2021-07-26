@@ -99,6 +99,35 @@ L'application vas démarrer sur emulateur et maintenant vous pouvez tester votre
 ![2021-07-25_12h00_47](https://user-images.githubusercontent.com/28864785/126897441-68124315-dd43-4404-808c-01846def7045.png)
 
 
-
 Guide Android Studio:
 Site officiel Android Studio comment [Exécuter des applications sur l'émulateur Android](https://developer.android.com/studio/run/emulator?gclid=Cj0KCQjwl_SHBhCQARIsAFIFRVXrTsw_HR1Njl0v5cEpFqefj_efTVINL7FOSVmK-oSiOR3xPgXYM_saAr2aEALw_wcB&gclsrc=aw.ds)
+
+
+
+## Comment exécuter des tests instrumentalisés et tests unitaires avec Android Studio
+
+Le répertoire (androidTest) va contenir l'ensemble des tests instrumentalisés (numéro de dossier - 1), qui permettent de tester une application comme un vrai utilisateur. Ces 
+tests ont l'avantage d'être extrèmement fidèles à la réalité.</br>
+Le répertoire (test) va contenir l'ensemble des tests unitaires locaux (numéro de dossier - 2), ils permettent de détecter les erreurs, la majorité des composants sont simulés, 
+ce qui implique qu'ils ne représentent pas forcément la réalité.
+
+
+![2021-07-26_11h18_12](https://user-images.githubusercontent.com/28864785/126965700-8ea6dde9-3253-46e2-9776-8efb3bc07f2d.png)
+
+Pour exécuter des tests instrumentalisé sous Android Studio, faîtes un clic droit sur la classe, et choisissez “Run ‘NeighboursListTest’”.
+
+![2021-07-26_11h36_21](https://user-images.githubusercontent.com/28864785/126967933-1c6524af-27c1-4284-a4cf-7be5eb54394a.png)
+
+Vous voyez alors apparaître en bas une fenêtre de rapport des tests instrumentalisés. Tout est vert, le test est passé.
+
+![2021-07-26_11h32_02](https://user-images.githubusercontent.com/28864785/126967276-e0484fc9-fef4-4cd2-8727-bc23fd3d676a.png)
+
+Pour exécuter un test unitaire sous Android Studio, faîtes un clic droit sur la classe, et choisissez “Run ‘NeighbourServiceTest’”.
+
+![2021-07-26_11h38_00](https://user-images.githubusercontent.com/28864785/126968078-d6e63cfa-a6f1-43bb-9700-98a68cbd4fe5.png)
+
+Vous voyez alors apparaître en bas une fenêtre de rapport des tests unitaires. Tout est vert, le test est passé.
+
+![2021-07-26_11h39_14](https://user-images.githubusercontent.com/28864785/126968193-45deade8-520b-49f2-9908-239276485d52.png)
+
+
