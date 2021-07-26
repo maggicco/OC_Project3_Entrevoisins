@@ -45,7 +45,6 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavoriteNeighboursWithSuccess() {
-        //same as normal neighbour but in service getFavorite and in DI
         List<Neighbour> neighbours = service.getNeighbours();
         Neighbour getFavorite = neighbours.get(1);
         getFavorite.setFavoriteNeighbour(true);
