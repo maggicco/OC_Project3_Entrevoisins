@@ -24,6 +24,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      * {@inheritDoc}
      * @return favoriteNeighbour
      */
+    @Override
     public List<Neighbour> getFavoriteNeighbours() {
 
         List<Neighbour> favoriteNeighbours = new ArrayList<>();
